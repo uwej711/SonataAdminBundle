@@ -11,6 +11,7 @@
 
 namespace Sonata\AdminBundle\Form\Type;
 
+use Sonata\AdminBundle\Form\EventListener\SetSubjectEventListener;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
@@ -35,8 +36,8 @@ class AdminType extends AbstractType
         }
 
         $admin->setSubject($builder->getData());
-
         $admin->defineFormBuilder($builder);
+        $builder->addEventSubscriber(new SetSubjectEventListener($admin));
 
         $builder->addModelTransformer(new ArrayToModelTransformer($admin->getModelManager(), $admin->getClass()));
     }
