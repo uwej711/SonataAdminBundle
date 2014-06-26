@@ -848,6 +848,10 @@ abstract class Admin implements AdminInterface, DomainObjectInterface
         }
 
         $this->form = $this->getFormBuilder()->getForm();
+
+        if ($this->hasSubject()) {
+            $this->reconfigureForm($this->form);
+        }
     }
 
     /**
@@ -2627,4 +2631,10 @@ abstract class Admin implements AdminInterface, DomainObjectInterface
     {
         return $this->getSecurityHandler() instanceof AclSecurityHandlerInterface;
     }
+
+    public function reconfigureForm(Form $form)
+    {
+
+    }
+
 }

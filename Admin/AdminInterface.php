@@ -24,6 +24,7 @@ use Sonata\AdminBundle\Route\RouteGeneratorInterface;
 
 use Knp\Menu\FactoryInterface as MenuFactoryInterface;
 
+use Symfony\Component\Form\Form;
 use Symfony\Component\Validator\ValidatorInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -931,4 +932,6 @@ interface AdminInterface
      * @return bool
      */
     public function getCurrentChild();
+
+    public function reconfigureForm(Form $form);
 }
