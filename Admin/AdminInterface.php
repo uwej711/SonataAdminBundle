@@ -24,6 +24,7 @@ use Sonata\AdminBundle\Route\RouteGeneratorInterface;
 
 use Knp\Menu\FactoryInterface as MenuFactoryInterface;
 
+use Symfony\Component\Form\Form;
 use Symfony\Component\Validator\ValidatorInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -971,4 +972,6 @@ interface AdminInterface
      * @return string
      */
     public function getTranslationLabel($label, $context = '', $type = '');
+
+    public function reconfigureForm(Form $form);
 }
